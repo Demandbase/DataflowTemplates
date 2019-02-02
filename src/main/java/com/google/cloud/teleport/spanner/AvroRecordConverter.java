@@ -346,7 +346,7 @@ public class AvroRecordConverter implements SerializableFunction<GenericRecord, 
             return Optional.empty();
           }
           return Optional.of(
-              value.stream().map(x -> x == null ? null : (long) x).collect(Collectors.toList()));
+              value.stream().map(x -> x == null ? null : Long.parseLong(x.toString())).collect(Collectors.toList()));
         }
       case STRING:
         {
